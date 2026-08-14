@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Report 02: The Fix Was Slower, Not Faster — Sreejith M S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page: #f2ecdc;
+    --card: #faf7ee;
+    --card-deep: #efe8d4;
+    --ink: #241f18;
+    --ink-dim: #6b6152;
+    --ink-faint: #948a72;
+    --hairline: #ddd0a9;
+    --accent: #9a5423;
+    --stamp: #b8472b;
+    --gold: #b9832a;
+    --rule: #e2d6b4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  .mono{
+    font-family:'IBM Plex Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    letter-spacing:.03em;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  header.top{
+    border-bottom:1px solid var(--rule);
+    padding:20px 0;
+    background:rgba(242,236,220,.88);
+    backdrop-filter:blur(6px);
+    position:sticky;top:0;z-index:10;
+  }
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .back-link{
+    font-family:'Space Grotesk','IBM Plex Mono',sans-serif;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--ink-dim);
+    text-decoration:none;
+    display:flex;align-items:center;gap:8px;
+  }
+  .back-link:hover{color:var(--accent);}
+  .site-id{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--ink-faint);letter-spacing:.06em;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin:0 0 18px;
+  }
+  .eyebrow::before{content:"◆ ";}
+  h1.hero-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    line-height:1.12;
+    margin:0 0 20px;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  article.full{
+    padding:0 0 56px;
+    position:relative;
+  }
+  .paper{
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.015) 0px, transparent 1px, transparent 27px, rgba(0,0,0,.015) 28px),
+      var(--card);
+    color:var(--ink);
+    padding:52px 48px 56px;
+    margin-top:12px;
+    position:relative;
+    box-shadow:0 30px 60px -30px rgba(36,31,24,.4);
+    border:1px solid var(--rule);
+  }
+  .paper::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--gold),var(--stamp));
+    opacity:.7;
+  }
+  .paper blockquote{
+    border-left-color:var(--accent);
+    color:#171310;
+    background:rgba(154,84,35,.07);
+    padding:14px 20px;
+  }
+  .paper .metric-row{background:var(--rule);border-color:var(--rule);}
+  .paper .metric{background:var(--card-deep);}
+  .paper .metric .num{color:var(--accent);}
+  .paper .metric .lbl{color:var(--ink-dim);}
+  .paper .eyebrow{color:var(--accent);}
+  .paper .eyebrow::before{content:"◆ ";}
+  .paper h1.hero-title{color:var(--ink);}
+
+  .stamp{
+    position:absolute;
+    top:38px;
+    right:44px;
+    border:2.5px solid var(--stamp);
+    color:var(--stamp);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.14em;
+    padding:9px 16px;
+    transform:rotate(8deg);
+    border-radius:3px;
+    opacity:.82;
+    z-index:2;
+    mix-blend-mode:multiply;
+  }
+  .stamp small{display:block;font-size:8.5px;letter-spacing:.1em;text-align:center;margin-top:2px;opacity:.9;}
+  article.full h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px;
+    color:var(--accent);
+    margin:40px 0 14px;
+    letter-spacing:.01em;
+  }
+  article.full p{font-size:17px;color:var(--ink);margin:0 0 18px;}
+  article.full .lede{
+    font-size:19px;
+    color:#171310;
+  }
+  blockquote{
+    margin:32px 0;
+    padding:4px 0 4px 20px;
+    border-left:3px solid var(--accent);
+    font-family:'Space Grotesk',sans-serif;
+    font-style:normal;
+    font-size:18px;
+    color:var(--ink);
+  }
+  .metric-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin:36px 0;
+  }
+  .metric{background:var(--card-deep);padding:20px 16px;text-align:center;}
+  .metric .num{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:24px;display:block;}
+  .metric .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.06em;display:block;margin-top:6px;}
+
+  .closing-note{
+    margin:44px 0 0;
+    padding:18px 22px;
+    border:1px dashed var(--rule);
+    background:var(--card-deep);
+    font-family:'Space Grotesk',sans-serif;
+    font-size:15px;
+    color:var(--ink-dim);
+    text-align:center;
+  }
+  .closing-note b{color:var(--accent);}
+
+  .discuss{
+    margin:36px 0 0;
+    padding:20px 24px;
+    border:1px solid var(--rule);
+    background:var(--card-deep);
+    font-size:15.5px;
+    color:var(--ink-dim);
+    font-style:italic;
+  }
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding:36px 0 60px;
+    margin-top:40px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer .fl{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);}
+  footer a{color:var(--ink-dim);}
+
+  @media (max-width:640px){
+    .metric-row{grid-template-columns:1fr;}
+    .paper{padding:36px 22px 40px;}
+    .stamp{top:22px;right:20px;font-size:11px;padding:6px 10px;}
+  }
+
+  a:focus-visible, .back-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="back-link" href="field-notes.html">&larr; Back to Field Notes</a>
+    <span class="site-id mono">SM S — FIELD REPORT 02</span>
+  </div>
+</header>
+
+<article class="full" id="case-02" style="padding-top:48px;">
+  <div class="wrap">
+    <div class="paper">
+    <div class="stamp">AS BUILT<small>FIELD VERIFIED</small></div>
+    <p class="eyebrow">Field Report 02</p>
+    <h1 class="hero-title" style="font-size:clamp(26px,4vw,34px);">The Fix Was Slower, Not Faster</h1>
+
+    <p class="lede">Years ago I inherited a production line running an 80% rejection rate. The obvious assumption was that the defect was happening at the critical processing step itself. It wasn't.</p>
+
+    <h2>The starting problem</h2>
+    <p>The defect was only ever caught at Non-Destructive Testing — the final inspection gate, right before a part was due to leave the line. By that point, every rejected part had already absorbed a full cycle of manpower, machine time, and processing capacity. An 80% rejection rate wasn't 80% of parts failing early and cheaply — it was 80% of parts failing after the line had already paid for them in full, with nothing to show for it but scrap.</p>
+    <p>Everyone on the floor had already formed a theory before I got there, and it centered on the critical processing step — that's where the defect showed up, so that's where people kept tuning parameters. Weeks of adjustment on that step hadn't moved the rejection rate. The step was the symptom, not the cause, and no one had gone looking further upstream.</p>
+
+    <h2>What I found</h2>
+    <p>The real issue was thermal — how the part was heating and cooling around that step, not the step itself. The fix was in the temperature profile before and after that step, not in the parameter everyone kept trying to tune. Once I traced it there, the pattern in the rejects made sense in a way it never had at the processing step alone.</p>
+
+    <h2>The hard sell</h2>
+    <p>The part that made it a hard sell: it meant adding a step to the process. Cycle time went up. Nobody wants to hear "we're going to make this slower" on a floor that's already under pressure to hit takt time. Making the case meant walking people past the per-part cycle time and toward what the 80% rejection rate was actually costing.</p>
+
+    <blockquote>A rejected part doesn't just cost the time it took to make it — it costs the rework, the scrap replacement, and the capacity it quietly ate on its way to being thrown out. Slower per part ended up faster overall.</blockquote>
+
+    <h2>Where it landed</h2>
+    <p>Rejection dropped from 80% to 15%. Output still climbed to 110 units a shift, on a line serving a demanding tier-one client base — despite the added step, because the line was no longer burning capacity on parts that were headed for scrap anyway.</p>
+
+    <div class="metric-row">
+      <div class="metric"><span class="num">80% → 15%</span><span class="lbl">EN52 Rejection Rate</span></div>
+      <div class="metric"><span class="num">110/shift</span><span class="lbl">Output After Fix</span></div>
+      <div class="metric"><span class="num">+1 Step</span><span class="lbl">Added, Not Removed</span></div>
+    </div>
+
+    <h2>What I still use from this</h2>
+    <p>When a process is under pressure, the instinct is to strip steps out to save time. Sometimes the real fix is the opposite — one more step, placed at exactly the right point. The discipline is separating "where the defect appears" from "where the defect is caused," because those are rarely the same place, and chasing the first one just burns time tuning a parameter that was never the problem.</p>
+
+    <div class="closing-note">Filed under: <b>Slower can be faster.</b></div>
+
+    <div class="discuss">Where have you seen "adding a step" turn out to be the real fix, when everyone expected the answer to be "remove a step"?</div>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <span class="fl">© Sreejith M S · Munich, Germany</span>
+    <span class="fl"><a href="field-notes.html">All Field Reports</a> &nbsp;·&nbsp; <a href="index.html">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:sreejithmohanakumaran2k10@gmail.com">Email</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
