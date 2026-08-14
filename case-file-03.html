@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Report 03: Running a PMO Through a Corporate Carve-Out — Sreejith M S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page: #f2ecdc;
+    --card: #faf7ee;
+    --card-deep: #efe8d4;
+    --ink: #241f18;
+    --ink-dim: #6b6152;
+    --ink-faint: #948a72;
+    --hairline: #ddd0a9;
+    --accent: #9a5423;
+    --stamp: #b8472b;
+    --gold: #b9832a;
+    --rule: #e2d6b4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  .mono{
+    font-family:'IBM Plex Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    letter-spacing:.03em;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  header.top{
+    border-bottom:1px solid var(--rule);
+    padding:20px 0;
+    background:rgba(242,236,220,.88);
+    backdrop-filter:blur(6px);
+    position:sticky;top:0;z-index:10;
+  }
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .back-link{
+    font-family:'Space Grotesk','IBM Plex Mono',sans-serif;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--ink-dim);
+    text-decoration:none;
+    display:flex;align-items:center;gap:8px;
+  }
+  .back-link:hover{color:var(--accent);}
+  .site-id{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--ink-faint);letter-spacing:.06em;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin:0 0 18px;
+  }
+  .eyebrow::before{content:"◆ ";}
+  h1.hero-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    line-height:1.12;
+    margin:0 0 20px;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+
+  article.full{
+    padding:0 0 56px;
+    position:relative;
+  }
+  .paper{
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.015) 0px, transparent 1px, transparent 27px, rgba(0,0,0,.015) 28px),
+      var(--card);
+    color:var(--ink);
+    padding:52px 48px 56px;
+    margin-top:12px;
+    position:relative;
+    box-shadow:0 30px 60px -30px rgba(36,31,24,.4);
+    border:1px solid var(--rule);
+  }
+  .paper::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--gold),var(--stamp));
+    opacity:.7;
+  }
+  .paper blockquote{
+    border-left-color:var(--accent);
+    color:#171310;
+    background:rgba(154,84,35,.07);
+    padding:14px 20px;
+  }
+  .paper .metric-row{background:var(--rule);border-color:var(--rule);}
+  .paper .metric{background:var(--card-deep);}
+  .paper .metric .num{color:var(--accent);}
+  .paper .metric .lbl{color:var(--ink-dim);}
+  .paper .eyebrow{color:var(--accent);}
+  .paper .eyebrow::before{content:"◆ ";}
+  .paper h1.hero-title{color:var(--ink);}
+
+  .stamp{
+    position:absolute;
+    top:38px;
+    right:44px;
+    border:2.5px solid var(--stamp);
+    color:var(--stamp);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.14em;
+    padding:9px 16px;
+    transform:rotate(8deg);
+    border-radius:3px;
+    opacity:.82;
+    z-index:2;
+    mix-blend-mode:multiply;
+  }
+  .stamp small{display:block;font-size:8.5px;letter-spacing:.1em;text-align:center;margin-top:2px;opacity:.9;}
+  article.full h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px;
+    color:var(--accent);
+    margin:40px 0 14px;
+    letter-spacing:.01em;
+  }
+  article.full p{font-size:17px;color:var(--ink);margin:0 0 18px;}
+  article.full .lede{
+    font-size:19px;
+    color:#171310;
+  }
+  blockquote{
+    margin:32px 0;
+    padding:4px 0 4px 20px;
+    border-left:3px solid var(--accent);
+    font-family:'Space Grotesk',sans-serif;
+    font-style:normal;
+    font-size:18px;
+    color:var(--ink);
+  }
+  .metric-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin:36px 0;
+  }
+  .metric{background:var(--card-deep);padding:20px 16px;text-align:center;}
+  .metric .num{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:22px;display:block;}
+  .metric .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.06em;display:block;margin-top:6px;}
+
+  .closing-note{
+    margin:44px 0 0;
+    padding:18px 22px;
+    border:1px dashed var(--rule);
+    background:var(--card-deep);
+    font-family:'Space Grotesk',sans-serif;
+    font-size:15px;
+    color:var(--ink-dim);
+    text-align:center;
+  }
+  .closing-note b{color:var(--accent);}
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding:36px 0 60px;
+    margin-top:40px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer .fl{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);}
+  footer a{color:var(--ink-dim);}
+
+  @media (max-width:640px){
+    .metric-row{grid-template-columns:1fr;}
+    .paper{padding:36px 22px 40px;}
+    .stamp{top:22px;right:20px;font-size:11px;padding:6px 10px;}
+  }
+
+  a:focus-visible, .back-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="back-link" href="field-notes.html">&larr; Back to Field Notes</a>
+    <span class="site-id mono">SM S — FIELD REPORT 03</span>
+  </div>
+</header>
+
+<article class="full" id="case-03" style="padding-top:48px;">
+  <div class="wrap">
+    <div class="paper">
+    <div class="stamp">AS BUILT<small>FIELD VERIFIED</small></div>
+    <p class="eyebrow">Field Report 03</p>
+    <h1 class="hero-title" style="font-size:clamp(26px,4vw,34px);">Running a PMO Through a Corporate Carve-Out</h1>
+
+    <p class="lede">I joined this engagement as Lead, PMO on the account mid-flight, and within months the business unit I was supporting entered a divestiture — a specialty materials division being carved out of its parent company into a new standalone entity. Every system, every process document, every governance habit the PMO relied on had to survive that split without a single live project losing track of where it stood.</p>
+
+    <h2>The starting problem</h2>
+    <p>A corporate carve-out doesn't pause the work. Projects kept moving, deadlines kept landing, and finance still needed accurate numbers — all while the underlying platforms, account structures, and reporting lines were being redrawn underneath the portfolio. The risk wasn't any single project failing; it was governance itself quietly breaking during the handover, so that nobody could say with confidence what was on track and what wasn't.</p>
+
+    <h2>What I owned</h2>
+    <p>I took ownership of the PMO continuity and migration workstreams through the carve-out, treating data integrity as the non-negotiable constraint. That meant leading the end-to-end migration of project and portfolio records from Accolade to Planisware, the new enterprise PM platform — coordinating with finance, engineering, and account teams to align timelines, and running training sessions so the account could actually use the new system on day one instead of limping through it.</p>
+    <p>Alongside the platform move, I built and owned the PMO Process Site on Confluence for the domain, then led its migration to the new standalone entity as it split off. Documentation, templates, and process governance had to be standardized and carried forward intact — a carve-out is exactly the moment institutional knowledge is most likely to get lost.</p>
+
+    <h2>Keeping the numbers honest</h2>
+    <p>Underneath the migration, the financial picture couldn't be allowed to drift. I owned planned-expense validation for every live project against the Annual Operating Plan, mapping planned versus actual to eliminate variances, and built a senior-management dashboard that informed real calls on which projects to fund, scale back, or discontinue. I automated revenue reporting and built Power BI dashboards tracking revenue, margin, and spend, reconciling Month-on-Month YTD revenue against finance-reported actuals directly with project owners.</p>
+
+    <blockquote>The platform can migrate cleanly and the org chart can still redraw the ground underneath it. Continuity isn't a system — it's whether anyone can still trust the numbers on the other side of the split.</blockquote>
+
+    <h2>Where it landed</h2>
+    <p>Every live project carried through the migration with data integrity intact and no continuity gaps. Platform adoption accelerated through structured training rather than stalling on a new tool nobody trusted yet. Monthly NPI and financial MOS reporting kept leadership visibility constant through the transition, and monthly stakeholder compliance on SKU data submissions held steady even as the org itself was mid-change.</p>
+
+    <div class="metric-row">
+      <div class="metric"><span class="num">Accolade → Planisware</span><span class="lbl">Platform Migration Led</span></div>
+      <div class="metric"><span class="num">Zero</span><span class="lbl">Live Projects Disrupted</span></div>
+      <div class="metric"><span class="num">Monthly</span><span class="lbl">NPI &amp; Financial MOS Reporting</span></div>
+    </div>
+
+    <h2>What I still use from this</h2>
+    <p>Structural change is the moment PMO discipline is tested, not the moment to relax it. When the org chart is moving, the systems and the governance around them have to move first and cleanly, or the disruption compounds instead of resolving. Data integrity during a transition isn't a nice-to-have — it's the only thing standing between "we're mid-carve-out" and "we've lost track of the portfolio."</p>
+
+    <div class="closing-note">Filed under: <b>Continuity is the deliverable.</b></div>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <span class="fl">© Sreejith M S · Munich, Germany</span>
+    <span class="fl"><a href="field-notes.html">All Field Reports</a> &nbsp;·&nbsp; <a href="index.html">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:sreejithmohanakumaran2k10@gmail.com">Email</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
