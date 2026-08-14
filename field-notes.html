@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Field Notes — Sreejith M S</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page: #f2ecdc;
+    --card: #faf7ee;
+    --card-deep: #efe8d4;
+    --ink: #241f18;
+    --ink-dim: #6b6152;
+    --ink-faint: #948a72;
+    --hairline: #ddd0a9;
+    --accent: #9a5423;
+    --stamp: #b8472b;
+    --gold: #b9832a;
+    --rule: #e2d6b4;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--page);
+    color:var(--ink);
+    font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  .mono{
+    font-family:'IBM Plex Mono','JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    letter-spacing:.03em;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  header.top{
+    border-bottom:1px solid var(--rule);
+    padding:20px 0;
+    background:rgba(242,236,220,.88);
+    backdrop-filter:blur(6px);
+    position:sticky;top:0;z-index:10;
+  }
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .back-link{
+    font-family:'Space Grotesk','IBM Plex Mono',sans-serif;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--ink-dim);
+    text-decoration:none;
+    display:flex;align-items:center;gap:8px;
+  }
+  .back-link:hover{color:var(--accent);}
+  .site-id{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--ink-faint);letter-spacing:.06em;}
+
+  .hero{padding:88px 0 110px;border-bottom:1px solid var(--rule);position:relative;overflow:hidden;}
+  .quote-bg{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    justify-content:flex-end;
+    pointer-events:none;
+    user-select:none;
+    z-index:0;
+    padding:0 4% 26px 0;
+  }
+  .quote-bg p{
+    font-family:'Source Serif 4',Georgia,serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:clamp(20px,2.6vw,28px);
+    line-height:1.3;
+    color:var(--ink);
+    opacity:.32;
+    text-align:right;
+    max-width:24ch;
+    margin:0 0 10px;
+  }
+  .quote-attr{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:.1em;
+    color:var(--ink-faint);
+    z-index:1;
+    text-transform:uppercase;
+  }
+  .hero .wrap{position:relative;z-index:1;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--accent);
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    margin:0 0 18px;
+  }
+  .eyebrow::before{content:"◆ ";}
+  h1.hero-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(32px,5vw,46px);
+    line-height:1.12;
+    margin:0 0 20px;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  .hero-sub{
+    font-size:18px;
+    color:var(--ink-dim);
+    max-width:56ch;
+    margin:0;
+  }
+
+  .index{padding:44px 0 16px;}
+  .index-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin:0 0 20px;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:12px;
+  }
+
+  /* Title-block style case file header, echoing an engineering drawing stamp */
+  .case-file{
+    border:1px solid var(--rule);
+    background:var(--card);
+    margin-bottom:24px;
+    box-shadow:0 10px 24px -18px rgba(36,31,24,.35);
+  }
+  .case-file.open{border-color:var(--accent);border-width:1.5px;}
+
+  .tb{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    border-bottom:1px solid var(--rule);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    background:var(--card-deep);
+  }
+  .tb div{padding:10px 14px;border-right:1px solid var(--rule);}
+  .tb div:last-child{border-right:none;}
+  .tb .k{color:var(--ink-faint);text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:3px;}
+  .tb .v{color:var(--ink);}
+  .tb .v.hi{color:var(--accent);font-weight:600;}
+
+  .cf-body{padding:24px 26px 28px;}
+  .cf-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:23px;
+    font-weight:700;
+    color:var(--ink);
+    margin:0 0 6px;
+    line-height:1.25;
+  }
+  .cf-title a{color:inherit;text-decoration:none;}
+  .cf-title a:hover{color:var(--accent);}
+  .cf-teaser{color:var(--ink-dim);margin:0 0 0;font-size:15.5px;}
+
+  .locked{opacity:1;}
+  .locked .case-file, .case-file.locked{background:var(--page);}
+  .locked .cf-title{color:#8c8064;}
+  .locked .cf-teaser{color:var(--ink-faint);}
+  .locked .tb{background:var(--page);}
+  .locked .tb .v{color:var(--ink-faint);}
+  .status-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:3px 9px;
+    border:1px solid var(--rule);
+    color:var(--ink-faint);
+    border-radius:2px;
+  }
+  .status-tag.live{color:var(--accent);background:transparent;border:1.5px solid var(--accent);font-weight:600;}
+
+  article.full{
+    padding:0 0 56px;
+    position:relative;
+  }
+  .paper{
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.015) 0px, transparent 1px, transparent 27px, rgba(0,0,0,.015) 28px),
+      var(--card);
+    color:var(--ink);
+    padding:52px 48px 56px;
+    margin-top:12px;
+    position:relative;
+    box-shadow:0 30px 60px -30px rgba(36,31,24,.4);
+    border:1px solid var(--rule);
+  }
+  .paper::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,var(--gold),var(--stamp));
+    opacity:.7;
+  }
+  .paper blockquote{
+    border-left-color:var(--accent);
+    color:#171310;
+    background:rgba(154,84,35,.07);
+    padding:14px 20px;
+  }
+  .paper .metric-row{background:var(--rule);border-color:var(--rule);}
+  .paper .metric{background:var(--card-deep);}
+  .paper .metric .num{color:var(--accent);}
+  .paper .metric .lbl{color:var(--ink-dim);}
+  .paper .eyebrow{color:var(--accent);}
+  .paper .eyebrow::before{content:"◆ ";}
+  .paper h1.hero-title{color:var(--ink);}
+
+  .stamp{
+    position:absolute;
+    top:38px;
+    right:44px;
+    border:2.5px solid var(--stamp);
+    color:var(--stamp);
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.14em;
+    padding:9px 16px;
+    transform:rotate(8deg);
+    border-radius:3px;
+    opacity:.82;
+    z-index:2;
+    mix-blend-mode:multiply;
+  }
+  .stamp small{display:block;font-size:8.5px;letter-spacing:.1em;text-align:center;margin-top:2px;opacity:.9;}
+  article.full h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px;
+    color:var(--accent);
+    margin:40px 0 14px;
+    letter-spacing:.01em;
+  }
+  article.full p{font-size:17px;color:var(--ink);margin:0 0 18px;}
+  article.full .lede{
+    font-size:19px;
+    color:#171310;
+  }
+  blockquote{
+    margin:32px 0;
+    padding:4px 0 4px 20px;
+    border-left:3px solid var(--accent);
+    font-family:'Space Grotesk',sans-serif;
+    font-style:normal;
+    font-size:18px;
+    color:var(--ink);
+  }
+  .metric-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin:36px 0;
+  }
+  .metric{background:var(--card-deep);padding:20px 16px;text-align:center;}
+  .metric .num{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--accent);font-size:26px;display:block;}
+  .metric .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-dim);text-transform:uppercase;letter-spacing:.06em;display:block;margin-top:6px;}
+
+  .closing-note{
+    margin:44px 0 0;
+    padding:18px 22px;
+    border:1px dashed var(--rule);
+    background:var(--card-deep);
+    font-family:'Space Grotesk',sans-serif;
+    font-size:15px;
+    color:var(--ink-dim);
+    text-align:center;
+  }
+  .closing-note b{color:var(--accent);}
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding:36px 0 60px;
+    margin-top:40px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer .fl{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-faint);}
+  footer a{color:var(--ink-dim);}
+
+  @media (max-width:640px){
+    .tb{grid-template-columns:1fr 1fr;}
+    .tb div:nth-child(2){border-right:none;}
+    .tb div:nth-child(4){border-right:none;}
+    .metric-row{grid-template-columns:1fr;}
+    .cf-body{padding:22px 18px 26px;}
+    .paper{padding:36px 22px 40px;}
+    .stamp{top:22px;right:20px;font-size:11px;padding:6px 10px;}
+    .quote-bg p{font-size:26px;}
+  }
+
+  a:focus-visible, .back-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="back-link" href="index.html">&larr; Back to Portfolio</a>
+    <span class="site-id mono">SM S — FIELD NOTES</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="quote-bg">
+    <p>&ldquo;Plans are worthless, but planning is indispensable.&rdquo;</p>
+    <span class="quote-attr">— Dwight D. Eisenhower</span>
+  </div>
+  <div class="wrap">
+    <p class="eyebrow">Field Notes</p>
+    <h1 class="hero-title">Case files from the floor, not the textbook.</h1>
+    <p class="hero-sub">Short, specific write-ups on how individual PMO and program-management problems actually got solved — the decisions, the trade-offs, and the numbers. No listicles.</p>
+  </div>
+</section>
+
+<section class="index">
+  <div class="wrap">
+    <p class="index-label">Case Index — 3 filed, 1 open</p>
+
+    <div class="case-file open">
+      <div class="tb">
+        <div><span class="k">File No.</span><span class="v hi">01</span></div>
+        <div><span class="k">Org</span><span class="v">Auto-Components Tier-1</span></div>
+        <div><span class="k">Duration</span><span class="v">2022 – 2023</span></div>
+        <div><span class="k">Outcome</span><span class="v hi">85%+ success</span></div>
+      </div>
+      <div class="cf-body">
+        <span class="status-tag live">Filed</span>
+        <h3 class="cf-title"><a href="case-file-01.html">Building a PMO From Zero</a></h3>
+        <p class="cf-teaser">How gate-review criteria for a 60+ project portfolio got designed, contested, and adopted — starting from a blank page and a dotted-line team.</p>
+      </div>
+    </div>
+
+    <div class="case-file locked">
+      <div class="tb">
+        <div><span class="k">File No.</span><span class="v">02</span></div>
+        <div><span class="k">Org</span><span class="v">Auto-Components Tier-1</span></div>
+        <div><span class="k">Duration</span><span class="v">2022 – 2023</span></div>
+        <div><span class="k">Outcome</span><span class="v">In progress</span></div>
+      </div>
+      <div class="cf-body">
+        <span class="status-tag">Drafting</span>
+        <h3 class="cf-title">What APQP Gate Governance Actually Looks Like</h3>
+        <p class="cf-teaser">Not the flowchart version — the version with a supplier who missed a milestone and a gate review that had to decide what happens next.</p>
+      </div>
+    </div>
+
+    <div class="case-file locked">
+      <div class="tb">
+        <div><span class="k">File No.</span><span class="v">03</span></div>
+        <div><span class="k">Org</span><span class="v">Tech Mahindra</span></div>
+        <div><span class="k">Duration</span><span class="v">2023 – 2024</span></div>
+        <div><span class="k">Outcome</span><span class="v">In progress</span></div>
+      </div>
+      <div class="cf-body">
+        <span class="status-tag">Drafting</span>
+        <h3 class="cf-title">Running a PMO Through a Corporate Carve-Out</h3>
+        <p class="cf-teaser">Coordinating a distributed team across a 9.5-hour time difference while the org chart itself was being redrawn underneath the project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="fl">© Sreejith M S · Munich, Germany</span>
+    <span class="fl"><a href="index.html">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:sreejithmohanakumaran2k10@gmail.com">Email</a> &nbsp;·&nbsp; <a href="https://linkedin.com/in/sreejithms14041988">LinkedIn</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
