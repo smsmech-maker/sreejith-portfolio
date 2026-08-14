@@ -29,7 +29,7 @@
     line-height:1.7;
     letter-spacing:0.1px;
   }
-  h1, h2, h3, .brand, .job-title, .job-company, .job-sub, .skill-card h4{
+  h1, h2, h3, .brand, .job-title, .job-company, .job-company-main, .job-sub, .skill-card h4{
     font-family:'Frank Ruhl Libre', 'Cormorant Garamond', Georgia, serif;
   }
   a{color:var(--accent); text-decoration:none;}
@@ -44,7 +44,7 @@
   }
   nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
   .brand{font-weight:700; letter-spacing:0.5px; font-size:18px;}
-  .brand span{color:var(--accent);}
+  .brand span{color:var(--text);}
   nav ul{list-style:none; display:flex; gap:28px;}
   nav ul li a{color:var(--text-dim); font-size:14px; font-weight:500;}
   nav ul li a:hover{color:var(--text);}
@@ -71,6 +71,10 @@
     display:inline-block; font-size:13px; font-weight:600; color:#6b3f10;
     background:rgba(255,177,95,0.22); border:1px solid rgba(181,112,31,0.55);
     padding:8px 14px; border-radius:8px;
+  }
+  .badge-open{
+    color:#1e5c42;
+    background:rgba(63,143,111,0.16); border:1px solid rgba(63,143,111,0.55);
   }
 
   .hero-top{display:flex; align-items:center; gap:44px; flex-wrap:wrap;}
@@ -138,6 +142,10 @@
   .job li{margin-bottom:8px; font-size:14.8px; color:var(--text-dim);}
   .job li b, .job li strong{color:var(--text); font-weight:600;}
   .job-sub{font-size:18px; font-weight:700; color:var(--text); font-style:normal; margin:14px 0 4px;}
+  .job-company-main{font-size:19px; font-weight:700; color:var(--accent-2);}
+  .job-role-head{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:8px; margin:18px 0 4px; padding-top:14px; border-top:1px dashed var(--border);}
+  .job-role-head:first-of-type{border-top:none; padding-top:0; margin-top:8px;}
+  .job-role-date{color:var(--text-dim); font-size:13px; font-weight:600; white-space:nowrap;}
 
   /* EARLY CAREER */
   .early-list{display:grid; gap:14px; margin-top:18px;}
@@ -216,7 +224,10 @@
           <a href="https://linkedin.com/in/sreejithms14041988" target="_blank" rel="noopener">🔗 linkedin.com/in/sreejithms14041988</a>
         </div>
 
-        <span class="badge">Eligible to work in Germany (Opportunity Card, §20a AufenthG) · Open to relocation nationwide</span>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <span class="badge badge-open">Open to PMO / Portfolio Manager roles — automotive, manufacturing &amp; technology sectors</span>
+          <span class="badge">Eligible to work in Germany (Opportunity Card, §20a AufenthG) · Open to relocation nationwide</span>
+        </div>
       </div>
 
       <div class="hero-photo">
@@ -353,8 +364,13 @@
 
       <div class="job">
         <div class="job-head">
-          <div><span class="job-title">Key Accounts Manager, Business Development</span> — <span class="job-company">Gabriel India Limited</span></div>
-          <div class="job-date">Jan 2020 – Dec 2021</div>
+          <div class="job-company-main">Gabriel India Limited</div>
+          <div class="job-date">Oct 2016 – Dec 2021</div>
+        </div>
+
+        <div class="job-role-head">
+          <span class="job-title">Key Accounts Manager, Business Development</span>
+          <span class="job-role-date">Jan 2020 – Dec 2021</span>
         </div>
         <ul>
           <li>Fast-tracked to commercial leadership — promoted from vendor-side execution to full ownership of OEM relationships and revenue outcomes, on the strength of sourcing performance</li>
@@ -362,7 +378,11 @@
           <li>Orchestrated cross-functional collaboration for new projects to fulfill QCDDM objectives, facilitating stakeholder alignment across engineering, quality, and supply chain teams</li>
           <li>Managed project workflows via PLM integrated with SAP, improving execution visibility and coordination across engineering and supply chain</li>
         </ul>
-        <div class="job-sub"><strong>Senior Engineer, Sourcing &amp; SCM — Oct 2016 – Jan 2020</strong></div>
+
+        <div class="job-role-head">
+          <span class="job-title">Senior Engineer, Sourcing &amp; SCM</span>
+          <span class="job-role-date">Oct 2016 – Jan 2020</span>
+        </div>
         <ul>
           <li>Drove supplier integration for new product development across key commodities, aligning vendor capability with technical requirements</li>
           <li>Managed end-to-end sourcing: feasibility assessments, cost finalization, capacity reviews, and vendor onboarding (domestic and China-based)</li>
