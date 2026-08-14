@@ -68,8 +68,8 @@
   .contact-row a{color:var(--text-dim);}
   .contact-row a:hover{color:var(--accent);}
   .badge{
-    display:inline-block; font-size:13px; color:var(--accent-warm);
-    background:rgba(255,177,95,0.10); border:1px solid rgba(255,177,95,0.25);
+    display:inline-block; font-size:13px; font-weight:600; color:#6b3f10;
+    background:rgba(255,177,95,0.22); border:1px solid rgba(181,112,31,0.55);
     padding:8px 14px; border-radius:8px;
   }
 
@@ -212,7 +212,7 @@
 
         <div class="contact-row">
           <span>📱 +49 170 6693662</span>
-          <a href="mailto:sreejithmohanakumaran2k10@gmail.com">✉️ sreejithmohanakumaran2k10@gmail.com</a>
+          <a href="mailto:sreejithmohanakumaran2k10@gmail.com" onclick="return openMail('sreejithmohanakumaran2k10@gmail.com');">✉️ sreejithmohanakumaran2k10@gmail.com</a>
           <a href="https://linkedin.com/in/sreejithms14041988" target="_blank" rel="noopener">🔗 linkedin.com/in/sreejithms14041988</a>
         </div>
 
@@ -455,13 +455,30 @@
   <div class="wrap">
     <p>Sreejith M S — Senior Project &amp; Portfolio Manager</p>
     <p style="margin-top:8px;">
-      <a href="mailto:sreejithmohanakumaran2k10@gmail.com">sreejithmohanakumaran2k10@gmail.com</a>
+      <a href="mailto:sreejithmohanakumaran2k10@gmail.com" onclick="return openMail('sreejithmohanakumaran2k10@gmail.com');">sreejithmohanakumaran2k10@gmail.com</a>
       &nbsp;·&nbsp; +49 170 6693662
       &nbsp;·&nbsp; <a href="https://linkedin.com/in/sreejithms14041988" target="_blank" rel="noopener">LinkedIn</a>
     </p>
     <p style="margin-top:14px; color:var(--text-dim);">Eligible to work in Germany (Opportunity Card, §20a AufenthG) · Open to relocation nationwide</p>
   </div>
 </footer>
+
+<script>
+function openMail(email, subject){
+  var handled = false;
+  function markHandled(){ handled = true; }
+  window.addEventListener('blur', markHandled, {once:true});
+  document.addEventListener('visibilitychange', function(){ if(document.hidden){ handled = true; } }, {once:true});
+  var mailto = 'mailto:' + email + (subject ? ('?subject=' + encodeURIComponent(subject)) : '');
+  window.location.href = mailto;
+  setTimeout(function(){
+    if(!handled){
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + email, '_blank');
+    }
+  }, 600);
+  return false;
+}
+</script>
 
 </body>
 </html>

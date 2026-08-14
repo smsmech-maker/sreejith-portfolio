@@ -352,9 +352,26 @@
 <footer>
   <div class="wrap">
     <span class="fl">© Sreejith M S · Munich, Germany</span>
-    <span class="fl"><a href="field-notes.html">All Field Reports</a> &nbsp;·&nbsp; <a href="index.html">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:sreejithmohanakumaran2k10@gmail.com">Email</a></span>
+    <span class="fl"><a href="field-notes.html">All Field Reports</a> &nbsp;·&nbsp; <a href="index.html">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:sreejithmohanakumaran2k10@gmail.com" onclick="return openMail('sreejithmohanakumaran2k10@gmail.com');">Email</a></span>
   </div>
 </footer>
+
+<script>
+function openMail(email, subject){
+  var handled = false;
+  function markHandled(){ handled = true; }
+  window.addEventListener('blur', markHandled, {once:true});
+  document.addEventListener('visibilitychange', function(){ if(document.hidden){ handled = true; } }, {once:true});
+  var mailto = 'mailto:' + email + (subject ? ('?subject=' + encodeURIComponent(subject)) : '');
+  window.location.href = mailto;
+  setTimeout(function(){
+    if(!handled){
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=' + email, '_blank');
+    }
+  }, 600);
+  return false;
+}
+</script>
 
 </body>
 </html>
