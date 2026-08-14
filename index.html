@@ -521,5 +521,18 @@ function openMail(email, subject){
 }
 </script>
 
+<script>
+(function(){
+  var API = 'https://countapi.mileshilliard.com/api/v1/hit/';
+  fetch(API + 'sreejithms_portfolio_views').catch(function(){});
+  var dl = document.querySelector('a.resume-download');
+  if(dl){
+    dl.addEventListener('click', function(){
+      fetch(API + 'sreejithms_portfolio_downloads').catch(function(){});
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
