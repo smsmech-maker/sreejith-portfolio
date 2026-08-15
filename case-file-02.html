@@ -219,22 +219,22 @@
     <p class="eyebrow">Field Report 02</p>
     <h1 class="hero-title" style="font-size:clamp(26px,4vw,34px);">The Fix Was Slower, Not Faster</h1>
 
-    <p class="lede">Years ago I inherited a production line running an 80% rejection rate. The obvious assumption was that the defect was happening at the critical processing step itself. It wasn't.</p>
+    <p class="lede">Years ago I took over a production line running an 80% rejection rate. Everyone, myself included at first, assumed the defect was happening at the critical processing step. Turned out that wasn't where the problem actually was.</p>
 
     <h2>The starting problem</h2>
-    <p>The defect was only ever caught at Non-Destructive Testing — the final inspection gate, right before a part was due to leave the line. By that point, every rejected part had already absorbed a full cycle of manpower, machine time, and processing capacity. An 80% rejection rate wasn't 80% of parts failing early and cheaply — it was 80% of parts failing after the line had already paid for them in full, with nothing to show for it but scrap.</p>
-    <p>Everyone on the floor had already formed a theory before I got there, and it centered on the critical processing step — that's where the defect showed up, so that's where people kept tuning parameters. Weeks of adjustment on that step hadn't moved the rejection rate. The step was the symptom, not the cause, and no one had gone looking further upstream.</p>
+    <p>The defect only ever showed up at Non-Destructive Testing, the final inspection gate right before a part left the line. Which meant every rejected part had already eaten a full cycle of manpower, machine time, and processing capacity before anyone caught it. An 80% rejection rate at that stage is a different kind of expensive than an 80% rejection rate would be if it happened early — you're not failing cheap, you're failing after the line has already paid for the part in full and has nothing to show for it.</p>
+    <p>By the time I got there, everyone on the floor already had a theory, and it centered on the critical processing step — that's where the defect physically showed up, so that's where people kept adjusting parameters. Weeks of tuning hadn't moved the rejection rate at all. Turned out the step was just where the defect became visible, not where it originated, and nobody had gone looking further back.</p>
 
     <h2>What I found</h2>
-    <p>The real issue was thermal — how the part was heating and cooling around that step, not the step itself. The fix was in the temperature profile before and after that step, not in the parameter everyone kept trying to tune. Once I traced it there, the pattern in the rejects made sense in a way it never had at the processing step alone.</p>
+    <p>The actual issue turned out to be thermal — how the part was heating and cooling around that step. The fix lived in the temperature profile before and after it, nowhere near the parameter everyone kept adjusting. Once I traced it there, the pattern in the rejects finally made sense.</p>
 
     <h2>The hard sell</h2>
-    <p>The part that made it a hard sell: it meant adding a step to the process. Cycle time went up. Nobody wants to hear "we're going to make this slower" on a floor that's already under pressure to hit takt time. Making the case meant walking people past the per-part cycle time and toward what the 80% rejection rate was actually costing.</p>
+    <p>Here's what made it a hard sell: fixing it meant adding a step to the process, which meant cycle time went up. Nobody on a floor already fighting to hit takt time wants to hear "we're making this slower." Making the case meant walking people past the per-part cycle time and showing them what the 80% rejection rate was actually costing.</p>
 
-    <blockquote>A rejected part doesn't just cost the time it took to make it — it costs the rework, the scrap replacement, and the capacity it quietly ate on its way to being thrown out. Slower per part ended up faster overall.</blockquote>
+    <blockquote>People price a rejected part by the time it took to make. That's not the real number — you have to add the rework, the scrap replacement, and the capacity it quietly used up on its way to getting thrown out. Once you count all of that, one extra step per part was cheaper than the 80% we were losing.</blockquote>
 
     <h2>Where it landed</h2>
-    <p>Rejection dropped from 80% to 15%. Output still climbed to 110 units a shift, on a line serving a demanding tier-one client base — despite the added step, because the line was no longer burning capacity on parts that were headed for scrap anyway.</p>
+    <p>Rejection dropped from 80% to 15%, and output still climbed to 110 units a shift — on a line serving a demanding tier-one client base, and despite the extra step. The line simply wasn't burning capacity anymore on parts that were headed for scrap regardless.</p>
 
     <div class="metric-row">
       <div class="metric"><span class="num">80% → 15%</span><span class="lbl">EN52 Rejection Rate</span></div>
@@ -243,11 +243,11 @@
     </div>
 
     <h2>What I still use from this</h2>
-    <p>When a process is under pressure, the instinct is to strip steps out to save time. Sometimes the real fix is the opposite — one more step, placed at exactly the right point. The discipline is separating "where the defect appears" from "where the defect is caused," because those are rarely the same place, and chasing the first one just burns time tuning a parameter that was never the problem.</p>
+    <p>When a process is under pressure, the instinct is always to strip steps out to save time. Sometimes that's backwards — one more step, placed in the right spot, is the actual fix. What this taught me is to keep "where the defect appears" and "where the defect is caused" as two separate questions, because they're rarely the same place, and chasing the first one just burns time tuning a parameter that was never really the problem.</p>
 
     <div class="closing-note">Filed under: <b>Slower can be faster.</b></div>
 
-    <div class="discuss">Where have you seen "adding a step" turn out to be the real fix, when everyone expected the answer to be "remove a step"?</div>
+    <div class="discuss">Curious where else you've seen this: an "extra" step turning out to be the fix, when everyone was sure the answer was to cut something out.</div>
     </div>
   </div>
 </article>
