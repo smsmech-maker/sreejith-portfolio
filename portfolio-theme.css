@@ -108,7 +108,6 @@ footer a{color:#dce9e4;}
 @media (max-width:700px){
   header.top .wrap{padding:0 20px;}
   .section-nav{gap:15px;}
-  .section-nav a:first-child{display:none;}
   .hero{padding:62px 0 58px;}
   .quote-bg{display:none;}
   .wrap{padding:0 20px;}
