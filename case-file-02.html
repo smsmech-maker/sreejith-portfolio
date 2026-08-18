@@ -222,19 +222,19 @@
     <p class="lede">Years ago I took over a production line running an 80% rejection rate. Everyone, myself included at first, assumed the defect was happening at the critical processing step. Turned out that wasn't where the problem actually was.</p>
 
     <h2>The starting problem</h2>
-    <p>The defect only ever showed up at Non-Destructive Testing, the final inspection gate right before a part left the line. Which meant every rejected part had already eaten a full cycle of manpower, machine time, and processing capacity before anyone caught it. An 80% rejection rate at that stage is a different kind of expensive than an 80% rejection rate would be if it happened early — you're not failing cheap, you're failing after the line has already paid for the part in full and has nothing to show for it.</p>
-    <p>By the time I got there, everyone on the floor already had a theory, and it centered on the critical processing step — that's where the defect physically showed up, so that's where people kept adjusting parameters. Weeks of tuning hadn't moved the rejection rate at all. Turned out the step was just where the defect became visible, not where it originated, and nobody had gone looking further back.</p>
+    <p>The defect appeared only during Non-Destructive Testing, the final inspection gate before a part left the line. By that point, every rejected part had consumed a full cycle of manpower, machine time, and processing capacity. The late detection made the 80% rejection rate particularly costly.</p>
+    <p>Earlier investigations had focused on the critical processing step because that was where the defect became visible. Repeated parameter adjustments had not improved the rejection rate. I therefore examined the conditions before and after the operation rather than continuing to tune the same step.</p>
 
     <h2>What I found</h2>
-    <p>The actual issue turned out to be thermal — how the part was heating and cooling around that step. The fix lived in the temperature profile before and after it, nowhere near the parameter everyone kept adjusting. Once I traced it there, the pattern in the rejects finally made sense.</p>
+    <p>The root cause was the thermal profile surrounding the operation: how the component was heated and cooled before and after the critical step. Once I traced the defect to those conditions, the rejection pattern could be explained and addressed.</p>
 
     <h2>The hard sell</h2>
     <p>Here's what made it a hard sell: fixing it meant adding a step to the process, which meant cycle time went up. Nobody on a floor already fighting to hit takt time wants to hear "we're making this slower." Making the case meant walking people past the per-part cycle time and showing them what the 80% rejection rate was actually costing.</p>
 
-    <blockquote>People price a rejected part by the time it took to make. That's not the real number — you have to add the rework, the scrap replacement, and the capacity it quietly used up on its way to getting thrown out. Once you count all of that, one extra step per part was cheaper than the 80% we were losing.</blockquote>
+    <blockquote>The cost of rejection included more than the original processing time. It also included rework, replacement production, scrap, and the capacity consumed by components that would ultimately be rejected. On that basis, one additional step was less costly than continuing with the existing rejection rate.</blockquote>
 
     <h2>Where it landed</h2>
-    <p>Rejection dropped from 80% to 15%, and output still climbed to 110 units a shift — on a line serving a demanding tier-one client base, and despite the extra step. The line simply wasn't burning capacity anymore on parts that were headed for scrap regardless.</p>
+    <p>Rejection dropped from 80% to 15%, while output increased to 110 units per shift despite the additional process step. Reducing scrap and rework released capacity that had previously been consumed by rejected parts.</p>
 
     <div class="metric-row">
       <div class="metric"><span class="num">80% → 15%</span><span class="lbl">EN52 Rejection Rate</span></div>
@@ -243,11 +243,11 @@
     </div>
 
     <h2>What I still use from this</h2>
-    <p>When a process is under pressure, the instinct is always to strip steps out to save time. Sometimes that's backwards — one more step, placed in the right spot, is the actual fix. What this taught me is to keep "where the defect appears" and "where the defect is caused" as two separate questions, because they're rarely the same place, and chasing the first one just burns time tuning a parameter that was never really the problem.</p>
+    <p>The experience reinforced the need to separate the point where a defect becomes visible from the process condition that causes it. It also showed that a longer individual cycle can improve total output when it prevents scrap and releases wasted capacity.</p>
 
     <div class="closing-note">Filed under: <b>Slower can be faster.</b></div>
 
-    <div class="discuss">Curious where else you've seen this: an "extra" step turning out to be the fix, when everyone was sure the answer was to cut something out.</div>
+    <div class="discuss">The counterintuitive part of the solution was that adding a controlled process step improved both quality and overall output.</div>
     </div>
   </div>
 </article>
