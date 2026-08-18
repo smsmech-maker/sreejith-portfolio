@@ -61,7 +61,11 @@
   nav ul{list-style:none; display:flex; gap:28px;}
   nav ul li a{color:var(--text-dim); font-size:14px; font-weight:500;}
   nav ul li a:hover{color:var(--text);}
-  .nav-toggle{display:none;}
+  .nav-toggle{
+    display:none; align-items:center; gap:8px; border:1px solid var(--border); border-radius:8px;
+    background:var(--card); color:var(--text); padding:8px 11px; font:600 13px 'Jost',sans-serif; cursor:pointer;
+  }
+  .nav-toggle .menu-icon{font-size:17px; line-height:1;}
 
   /* HERO */
   header.hero{
@@ -217,7 +221,16 @@
   footer a{color:var(--accent);}
 
   @media (max-width:720px){
-    nav ul{display:none;}
+    nav .wrap{height:60px; position:relative;}
+    .nav-toggle{display:inline-flex;}
+    nav ul{
+      display:none; position:absolute; top:58px; left:20px; right:20px; z-index:60;
+      flex-direction:column; gap:0; padding:8px; background:var(--card);
+      border:1px solid var(--border); border-radius:12px; box-shadow:0 14px 34px rgba(36,40,34,.14);
+    }
+    nav ul.is-open{display:flex;}
+    nav ul li a{display:block; padding:11px 12px; border-radius:7px; font-size:15px;}
+    nav ul li a:hover{background:var(--bg-alt); color:var(--accent);}
     h1{font-size:32px;}
     .stats{grid-template-columns:repeat(2,1fr);}
     .grid-2{grid-template-columns:1fr;}
@@ -230,7 +243,10 @@
 <nav>
   <div class="wrap">
     <a class="brand" href="#profile" aria-label="Back to top">SREEJITH <span>M S</span></a>
-    <ul>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+      <span class="menu-icon" aria-hidden="true">☰</span><span>Menu</span>
+    </button>
+    <ul id="primary-menu">
       <li><a href="#profile">Profile</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -527,6 +543,34 @@ function openMail(email, subject){
   }, 600);
   return false;
 }
+</script>
+
+<script>
+(function(){
+  var toggle = document.querySelector('.nav-toggle');
+  var menu = document.getElementById('primary-menu');
+  if(!toggle || !menu) return;
+
+  function closeMenu(){
+    menu.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function(){
+    var opening = !menu.classList.contains('is-open');
+    menu.classList.toggle('is-open', opening);
+    toggle.setAttribute('aria-expanded', String(opening));
+  });
+  menu.addEventListener('click', function(event){
+    if(event.target.closest('a')) closeMenu();
+  });
+  document.addEventListener('click', function(event){
+    if(!event.target.closest('nav')) closeMenu();
+  });
+  document.addEventListener('keydown', function(event){
+    if(event.key === 'Escape') closeMenu();
+  });
+})();
 </script>
 
 <script>
