@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&family=Jost:wght@300;400;500;600&display=swap');
+
+:root{
+  --page:#fbf9f5;
+  --card:#ffffff;
+  --card-deep:#f2efe8;
+  --ink:#242822;
+  --ink-dim:#6b6f68;
+  --ink-faint:#8b8f88;
+  --hairline:#e4e0d5;
+  --accent:#2f6f8f;
+  --stamp:#3f8f6f;
+  --gold:#b5701f;
+  --rule:#e4e0d5;
+}
+
+body{
+  background:var(--page);
+  color:var(--ink);
+  font-family:'Jost',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  font-weight:300;
+  line-height:1.7;
+}
+
+h1,h2,h3,.cf-title,.brand{
+  font-family:'Frank Ruhl Libre','Cormorant Garamond',Georgia,serif;
+}
+
+a{color:var(--accent);text-decoration:none;}
+.wrap{max-width:900px;padding:0 28px;}
+
+header.top{
+  padding:0;
+  min-height:64px;
+  background:rgba(251,249,245,.9);
+  border-bottom:1px solid var(--hairline);
+  backdrop-filter:blur(10px);
+}
+header.top .wrap{max-width:1080px;min-height:64px;gap:28px;}
+.brand{font-size:18px;font-weight:700;letter-spacing:.5px;color:var(--ink);white-space:nowrap;}
+.brand span{color:var(--ink);}
+.section-nav{display:flex;align-items:center;gap:26px;margin-left:auto;}
+.section-nav a{font-size:14px;font-weight:500;color:var(--ink-dim);}
+.section-nav a:hover,.section-nav a[aria-current="page"]{color:var(--accent);}
+
+.hero{
+  padding:82px 0 76px;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(95,176,255,.12),transparent 45%),
+    radial-gradient(circle at 85% 0%,rgba(126,232,181,.10),transparent 40%),
+    linear-gradient(rgba(47,111,143,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(47,111,143,.035) 1px,transparent 1px);
+  background-size:auto,auto,40px 40px,40px 40px;
+  border-bottom:1px solid var(--hairline);
+}
+.hero .wrap{max-width:900px;}
+.quote-bg{opacity:.18;}
+.eyebrow{font-family:'Jost',sans-serif;font-weight:600;color:var(--accent);letter-spacing:.16em;}
+.eyebrow::before{content:none;}
+h1.hero-title{font-family:'Frank Ruhl Libre','Cormorant Garamond',Georgia,serif;color:var(--ink);}
+.hero-sub{color:var(--ink-dim);}
+
+.index{padding:54px 0 32px;}
+.index-label{font-family:'Jost',sans-serif;color:var(--accent);font-weight:600;border-color:var(--hairline);}
+.case-file{
+  background:var(--card);
+  border:1px solid var(--hairline);
+  border-radius:12px;
+  box-shadow:0 1px 3px rgba(36,40,34,.05);
+  overflow:hidden;
+}
+.case-file.open{border-color:var(--hairline);}
+.tb{background:var(--card-deep);border-color:var(--hairline);}
+.tb .k,.tb .v,.status-tag,.footer .fl{font-family:'Jost',sans-serif;}
+.tb .k{color:var(--ink-faint);}
+.tb .v{color:var(--ink);}
+.tb .v.hi{color:var(--accent);}
+.status-tag.live{background:rgba(63,143,111,.12);color:#2f7258;border-color:rgba(63,143,111,.28);}
+.cf-title a{color:var(--ink);}
+.cf-title a:hover{color:var(--accent);}
+.cf-teaser{color:var(--ink-dim);}
+
+article.full{background:var(--page);}
+.paper{
+  background:var(--card);
+  border:1px solid var(--hairline);
+  border-radius:14px;
+  box-shadow:0 8px 30px rgba(36,40,34,.06);
+}
+.paper::before{display:none;}
+.paper h2{font-family:'Frank Ruhl Libre','Cormorant Garamond',Georgia,serif;color:var(--ink);}
+.paper p,.paper .lede{color:var(--ink-dim);}
+.paper blockquote{border-left-color:var(--accent);background:rgba(47,111,143,.06);color:var(--ink);}
+.paper .metric-row{background:var(--hairline);border-color:var(--hairline);}
+.paper .metric{background:var(--card-deep);}
+.paper .metric .num{color:var(--accent);}
+.paper .metric .lbl{color:var(--ink-dim);}
+.paper .eyebrow{color:var(--accent);}
+.paper .eyebrow::before{content:none;}
+.closing-note{background:rgba(63,143,111,.08);border-color:rgba(63,143,111,.32);color:var(--ink);}
+.discuss{background:var(--card-deep);border-color:var(--hairline);color:var(--ink-dim);}
+
+footer{background:#242822;border-color:#242822;margin-top:52px;}
+footer .wrap{max-width:1080px;}
+footer .fl{color:#c8cbc5;}
+footer a{color:#dce9e4;}
+
+@media (max-width:700px){
+  header.top .wrap{padding:0 20px;}
+  .section-nav{gap:15px;}
+  .section-nav a:nth-child(2){display:none;}
+  .hero{padding:62px 0 58px;}
+  .quote-bg{display:none;}
+  .wrap{padding:0 20px;}
+}

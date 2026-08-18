@@ -139,6 +139,14 @@
   }
   .skill-card h4{font-size:15.5px; font-weight:700; color:var(--text); margin-bottom:8px;}
   .skill-card p{font-size:13.6px; color:var(--text-dim); line-height:1.65;}
+  .evidence{margin-top:14px; padding-top:12px; border-top:1px solid var(--border);}
+  .evidence summary{cursor:pointer; color:var(--accent); font-size:12.8px; font-weight:600; list-style:none;}
+  .evidence summary::-webkit-details-marker{display:none;}
+  .evidence summary::after{content:'+'; float:right; font-size:17px; line-height:1; transition:transform .2s ease;}
+  .evidence[open] summary::after{transform:rotate(45deg);}
+  .evidence-body{margin-top:10px; padding:12px 14px; background:var(--bg-alt); border-radius:8px;}
+  .evidence-body p{font-size:13px; line-height:1.55; color:var(--text);}
+  .evidence-body a{display:inline-block; margin-top:8px; font-size:12.5px; font-weight:600;}
   .tools-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
   .tool{
     background:rgba(95,176,255,0.08); border:1px solid rgba(95,176,255,0.25);
@@ -289,26 +297,50 @@
       <div class="skill-card">
         <h4>Project, Program &amp; Portfolio Governance</h4>
         <p>Governed a 64+ project portfolio through common gate criteria, evidence-based reviews, resource prioritization, and structured risk decisions.</p>
+        <details class="evidence">
+          <summary>View supporting example</summary>
+          <div class="evidence-body"><p>Introduced common APQP and QCDDM gate criteria across engineering, quality, and supply chain, replacing separate interpretations of project readiness.</p><a href="case-file-01.html">Read Field Report 01 →</a></div>
+        </details>
       </div>
       <div class="skill-card">
         <h4>NPD, APQP &amp; Serial-Production Delivery</h4>
         <p>Led the NPD function for two major OEM accounts, applying APQP and QCDDM governance and moving 15 projects into serial production.</p>
+        <details class="evidence">
+          <summary>View supporting example</summary>
+          <div class="evidence-body"><p>Coordinated dotted-line teams across development, quality, and supply chain while sustaining more than 90% portfolio success.</p><a href="case-file-01.html">Read Field Report 01 →</a></div>
+        </details>
       </div>
       <div class="skill-card">
         <h4>Resource, Capacity &amp; Risk Management</h4>
         <p>Balanced strategic value, team capacity, cost, and delivery risk across development, quality, and supply chain functions.</p>
+        <details class="evidence">
+          <summary>View supporting example</summary>
+          <div class="evidence-body"><p>Prioritized a 64+ project portfolio against capacity, cost, strategic value, and gate readiness while supporting 15 serial-production launches.</p><a href="#experience">See relevant experience →</a></div>
+        </details>
       </div>
       <div class="skill-card">
         <h4>Change Management &amp; Business Continuity</h4>
         <p>Led PMO continuity, knowledge transfer, user adoption, and the Accolade-to-Planisware migration through a corporate carve-out with zero disruption across live projects.</p>
+        <details class="evidence">
+          <summary>View supporting example</summary>
+          <div class="evidence-body"><p>Migrated portfolio records, PMO documentation, reporting processes, and user workflows while project delivery continued.</p><a href="case-file-03.html">Read Field Report 03 →</a></div>
+        </details>
       </div>
       <div class="skill-card">
         <h4>Financial Reporting &amp; Project Controlling</h4>
         <p>Validated project expense against the Annual Operating Plan and built Power BI reporting for revenue, margin, spend, and portfolio-funding decisions.</p>
+        <details class="evidence">
+          <summary>View supporting example</summary>
+          <div class="evidence-body"><p>Reconciled project forecasts and actuals with finance and project owners, maintaining reliable management reporting during organizational change.</p><a href="case-file-03.html">Read Field Report 03 →</a></div>
+        </details>
       </div>
       <div class="skill-card">
         <h4>Strategic Sourcing, Procurement &amp; Supplier Development</h4>
         <p>Managed domestic and China-based sourcing, supplier feasibility, cost, capacity, and onboarding; improved FTR from 65% to 87% and vendor productivity by 15%.</p>
+        <details class="evidence">
+          <summary>View supporting example</summary>
+          <div class="evidence-body"><p>Onboarded and scaled an aluminium-forging supplier to 90% quality and delivery efficiency through structured feasibility and development work.</p><a href="#experience">See relevant experience →</a></div>
+        </details>
       </div>
     </div>
     <div class="tools-row">
