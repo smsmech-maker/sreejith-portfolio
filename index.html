@@ -164,6 +164,16 @@
     background:linear-gradient(var(--accent), var(--border));
   }
   .job{position:relative; padding-left:38px; margin-bottom:44px;}
+  .job[id]{scroll-margin-top:92px; border-radius:12px; transition:background-color .25s ease, box-shadow .25s ease;}
+  .job[id]:target{
+    background:rgba(63,143,111,.09);
+    box-shadow:0 0 0 2px rgba(63,143,111,.32), 0 8px 24px rgba(36,40,34,.08);
+    animation:relevant-experience 1.4s ease-out 1;
+  }
+  @keyframes relevant-experience{
+    0%{background:rgba(47,111,143,.20); box-shadow:0 0 0 4px rgba(47,111,143,.38), 0 10px 28px rgba(36,40,34,.12);}
+    100%{background:rgba(63,143,111,.09); box-shadow:0 0 0 2px rgba(63,143,111,.32), 0 8px 24px rgba(36,40,34,.08);}
+  }
   .job:last-child{margin-bottom:0;}
   .job::before{
     content:''; position:absolute; left:2px; top:6px; width:16px; height:16px;
@@ -330,7 +340,7 @@
         <p>Balanced strategic value, team capacity, cost, and delivery risk across development, quality, and supply chain functions.</p>
         <details class="evidence">
           <summary>View supporting example</summary>
-          <div class="evidence-body"><p>Prioritized a 64+ project portfolio against capacity, cost, strategic value, and gate readiness while supporting 15 serial-production launches.</p><a href="#experience">See relevant experience →</a></div>
+          <div class="evidence-body"><p>Prioritized a 64+ project portfolio against capacity, cost, strategic value, and gate readiness while supporting 15 serial-production launches.</p><a href="#job-unominda">See UnoMinda experience →</a></div>
         </details>
       </div>
       <div class="skill-card">
@@ -354,7 +364,7 @@
         <p>Managed domestic and China-based sourcing, supplier feasibility, cost, capacity, and onboarding; improved FTR from 65% to 87% and vendor productivity by 15%.</p>
         <details class="evidence">
           <summary>View supporting example</summary>
-          <div class="evidence-body"><p>Onboarded and scaled an aluminium-forging supplier to 90% quality and delivery efficiency through structured feasibility and development work.</p><a href="#experience">See relevant experience →</a></div>
+          <div class="evidence-body"><p>Onboarded and scaled an aluminium-forging supplier to 90% quality and delivery efficiency through structured feasibility and development work.</p><a href="#job-gabriel">See Gabriel India experience →</a></div>
         </details>
       </div>
     </div>
@@ -392,7 +402,7 @@
         </ul>
       </div>
 
-      <div class="job">
+      <div class="job" id="job-unominda">
         <div class="job-head">
           <div><span class="job-title">Deputy Manager, New Product Control (Program Management)</span> — <span class="job-company">UnoMinda Limited</span></div>
           <div class="job-date">Jan 2022 – Apr 2023</div>
@@ -406,7 +416,7 @@
         </ul>
       </div>
 
-      <div class="job">
+      <div class="job" id="job-gabriel">
         <div class="job-head">
           <div class="job-company-main">Gabriel India Limited</div>
           <div class="job-date">Oct 2016 – Dec 2021</div>
